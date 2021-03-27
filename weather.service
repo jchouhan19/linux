@@ -1,0 +1,16 @@
+
+[Unit]
+Description=this is a weather service
+Wants=myWeather.timer
+
+[Service]
+Type=simple
+ExecStart=/home/vagrant/weather/wttr.sh
+WorkingDirectory=/home/vagrant/weather
+Restart=on-failure
+
+[Timer]
+AccuracySec=1hrs
+
+[Install]
+WantedBy=multi-user.target
